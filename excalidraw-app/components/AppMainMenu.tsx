@@ -4,7 +4,7 @@ import {
   eyeIcon,
 } from "@excalidraw/excalidraw/components/icons";
 import { MainMenu } from "@excalidraw/excalidraw/index";
-import React from "react";
+import React, { useState } from "react";
 
 import { isDevEnv } from "@excalidraw/common";
 
@@ -14,6 +14,7 @@ import { LanguageList } from "../app-language/LanguageList";
 import { isExcalidrawPlusSignedUser } from "../app_constants";
 
 import { saveDebugState } from "./DebugCanvas";
+import { AISettingsPanel } from "./AISettingsPanel";
 
 export const AppMainMenu: React.FC<{
   onCollabDialogOpen: () => any;
@@ -23,6 +24,8 @@ export const AppMainMenu: React.FC<{
   setTheme: (theme: Theme | "system") => void;
   refresh: () => void;
 }> = React.memo((props) => {
+  const [showAISettings, setShowAISettings] = useState(false);
+
   return (
     <MainMenu>
       <MainMenu.DefaultItems.LoadScene />
@@ -87,6 +90,15 @@ export const AppMainMenu: React.FC<{
         <LanguageList style={{ width: "100%" }} />
       </MainMenu.ItemCustom>
       <MainMenu.DefaultItems.ChangeCanvasBackground />
+      <MainMenu.Separator />
+      <MainMenu.Item
+        onSelect={() => setShowAISettings(true)}
+      >
+        AI Settings
+      </MainMenu.Item>
+      {showAISettings && (
+        <AISettingsPanel onClose={() => setShowAISettings(false)} />
+      )}
     </MainMenu>
   );
 });

@@ -19,5 +19,24 @@ services:
       - ./yarn.lock:/opt/node_app/yarn.lock
       - notused:/opt/node_app/app/node_modules
 
+  ai-proxy:
+    image: node:18-alpine
+    container_name: ai-proxy
+    ports:
+      - "3017:3017"
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./scripts/ai-proxy.mjs:/app/ai-proxy.mjs:ro
+    environment:
+      - AI_PROXY_PORT=3017
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    command: ["node", "ai-proxy.mjs"]
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:3017/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
 volumes:
   notused:

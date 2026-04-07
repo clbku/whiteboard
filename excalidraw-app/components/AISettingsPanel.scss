@@ -1,0 +1,115 @@
+.ai-settings-panel {
+  background: var(--color-surface-primary);
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  padding: 4px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--color-border);
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--color-text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+
+    &:hover {
+      background: var(--color-surface-secondary);
+    }
+  }
+
+  &__body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    span {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+
+    input,
+    select {
+      padding: 8px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      font-size: 14px;
+      background: var(--color-surface-primary);
+      color: var(--color-text-primary);
+
+      &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  &__btn--primary,
+  &__btn--secondary {
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+  }
+
+  &__btn--primary {
+    background: var(--color-primary);
+    color: #fff;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__btn--secondary {
+    background: var(--color-surface-secondary);
+    color: var(--color-text-primary);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

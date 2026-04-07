@@ -12,6 +12,8 @@ import { safelyParseJSON } from "@excalidraw/common";
 import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types";
 
 import { TTDIndexedDBAdapter } from "../data/TTDStorage";
+import { loadAISettings } from "../data/aiSettings";
+import { anthropicStreamFetch } from "./AnthropicStreamFetch";
 
 export const AIComponents = ({
   excalidrawAPI,
@@ -104,6 +106,18 @@ export const AIComponents = ({
       <TTDDialog
         onTextSubmit={async (props) => {
           const { onChunk, onStreamCreated, signal, messages } = props;
+
+          const aiSettings = loadAISettings();
+
+          if (aiSettings.useCustomApi) {
+            return anthropicStreamFetch({
+              settings: aiSettings,
+              messages,
+              onChunk,
+              onStreamCreated,
+              signal,
+            });
+          }
 
           const result = await TTDStreamFetch({
             url: `${
