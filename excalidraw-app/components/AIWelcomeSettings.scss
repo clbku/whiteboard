@@ -1,0 +1,94 @@
+.ai-welcome-settings {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+
+  &__toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 6px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-primary);
+    font-size: 13px;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__arrow {
+    margin-left: auto;
+    font-size: 10px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  &__field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    cursor: pointer;
+
+    &--column {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 4px;
+    }
+
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    input[type="url"],
+    select {
+      padding: 6px 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      font-size: 13px;
+      background: var(--color-surface-primary);
+      color: var(--color-text-primary);
+
+      &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+      }
+    }
+  }
+
+  &__label {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__save-btn {
+    padding: 5px 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    background: var(--color-primary);
+    color: #fff;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

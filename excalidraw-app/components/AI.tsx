@@ -14,6 +14,7 @@ import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types";
 import { TTDIndexedDBAdapter } from "../data/TTDStorage";
 import { loadAISettings } from "../data/aiSettings";
 import { anthropicStreamFetch } from "./AnthropicStreamFetch";
+import { AIWelcomeSettings } from "./AIWelcomeSettings";
 
 export const AIComponents = ({
   excalidrawAPI,
@@ -104,6 +105,8 @@ export const AIComponents = ({
       />
 
       <TTDDialog
+        renderWelcomeScreen={() => <AIWelcomeSettings />}
+
         onTextSubmit={async (props) => {
           const { onChunk, onStreamCreated, signal, messages } = props;
 
