@@ -11,8 +11,8 @@ const STORAGE_KEY = "excalidraw-ai-settings";
 
 export const DEFAULT_AI_SETTINGS: AISettings = {
   useCustomApi: false,
-  apiBaseUrl: "http://localhost:3017",
-  model: "claude-sonnet-4-6",
+  apiBaseUrl: "https://api.z.ai/api/anthropic",
+  model: "glm-4.7",
 };
 
 export const AVAILABLE_MODELS = [
