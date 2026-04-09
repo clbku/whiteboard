@@ -11,7 +11,7 @@ const STORAGE_KEY = "excalidraw-ai-settings";
 
 export const DEFAULT_AI_SETTINGS: AISettings = {
   useCustomApi: false,
-  apiBaseUrl: "https://api.z.ai/api/anthropic",
+  apiBaseUrl: "http://ai-proxy:3017",
   model: "glm-4.7",
 };
 

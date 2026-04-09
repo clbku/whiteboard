@@ -47,7 +47,7 @@ if (!API_KEY) {
   process.exit(1);
 }
 
-const TARGET = "https://api.anthropic.com";
+const TARGET = "https://api.z.ai/api/anthropic";
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
